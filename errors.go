@@ -120,7 +120,7 @@ func (e ErrDefault401) Error() string {
 func (e ErrDefault403) Error() string {
 	e.DefaultErrString = fmt.Sprintf(
 		"Action forbidden: [%s %s], error message: %s",
-		e.Method, e.URL, e.Body,
+		e.Method, e.URL, e.Body[:100],
 	)
 	return e.choseErrString()
 }
